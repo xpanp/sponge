@@ -1,20 +1,8 @@
 Lab 0 Writeup
 =============
 
-My name: [your name here]
+这里不一定需要安装虚拟机，有自己的linux环境即可，cmake成功就可以开始lab了。
 
-My SUNet ID: [your sunetid here]
+第一个`get_URL`中记得需要调用close函数。
 
-I collaborated with: [list sunetids here]
-
-This lab took me about [n] hours to do. I [did/did not] attend the lab session.
-
-My secret code from section 2.1 was: [code here]
-
-- Optional: I had unexpected difficulty with: [describe]
-
-- Optional: I think you could make this lab better by: [describe]
-
-- Optional: I was surprised by: [describe]
-
-- Optional: I'm not sure about: [describe]
+第二个`byte_stream`任务，相当于维护一个环形缓冲区。
