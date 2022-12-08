@@ -1,29 +1,6 @@
 Lab 1 Writeup
 =============
 
-My name: [your name here]
+这里用deque来实现数据的组装并再用一个deque来记录这个位置是否使用，这样代码写出来比较简洁也容易理解。
 
-My SUNet ID: [your sunetid here]
-
-I collaborated with: [list sunetids here]
-
-I would like to thank/reward these classmates for their help: [list sunetids here]
-
-This lab took me about [n] hours to do. I [did/did not] attend the lab session.
-
-Program Structure and Design of the StreamReassembler:
-[]
-
-Implementation Challenges:
-[]
-
-Remaining Bugs:
-[]
-
-- Optional: I had unexpected difficulty with: [describe]
-
-- Optional: I think you could make this lab better by: [describe]
-
-- Optional: I was surprised by: [describe]
-
-- Optional: I'm not sure about: [describe]
+存在一种情况，网络比较差的时候一直重发已有的块，这个时候时间复杂度就比较高了，因为每次都需要循环整个块的flag数组，但是大部分时候flag都为true，应该优化一下flag标记部分。
