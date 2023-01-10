@@ -1,29 +1,10 @@
 Lab 3 Writeup
 =============
 
-My name: [your name here]
+参考: [CS144-Lab3](https://zhuanlan.zhihu.com/p/465922453)
 
-My SUNet ID: [your sunetid here]
+建议多读几遍文档，还是有一些难度的。
 
-I collaborated with: [list sunetids here]
+payload size需要将SYN和FIN所占的1个byte去掉。
 
-I would like to thank/reward these classmates for their help: [list sunetids here]
-
-This lab took me about [n] hours to do. I [did/did not] attend the lab session.
-
-Program Structure and Design of the TCPSender:
-[]
-
-Implementation Challenges:
-[]
-
-Remaining Bugs:
-[]
-
-- Optional: I had unexpected difficulty with: [describe]
-
-- Optional: I think you could make this lab better by: [describe]
-
-- Optional: I was surprised by: [describe]
-
-- Optional: I'm not sure about: [describe]
+这里没有对每一个发送的segment设置定时器，只给未确认队列中最前面的segment设置了定时器。

@@ -9,6 +9,52 @@
 #include <functional>
 #include <queue>
 
+class Timer {
+  public:
+    Timer(size_t _init_rto) : _rto(_init_rto) {}
+
+    // need_double_rto: 如果窗口大小非零, RTO值加倍(指数回退)。它会在糟糕的网络上降低重传速度，以避免进一步搞砸工作。
+    bool tick(const size_t ms_since_last_tick, bool need_double_rto) {
+      // 定时器未激活
+      if (!_active) {
+        return false;
+      }
+      if (_ms + ms_since_last_tick >= _rto || _ms + ms_since_last_tick < _ms) {
+        // 超时
+        _ms = 0;
+        if (need_double_rto) {
+          double_rto();
+        }
+        _consecutive_retransmissions_cnt++;
+        return true;
+      }
+      _ms += ms_since_last_tick;
+      return false;
+    }
+    void active() { _active = true; }
+    void deactive() { _active = false; }
+    void reset(size_t rto) {
+      _rto = rto;
+      _ms = 0;
+      _consecutive_retransmissions_cnt = 0;
+    }
+    unsigned int get_consecutive_retransmissions() const {
+      return _consecutive_retransmissions_cnt;
+    }
+
+  private:
+    bool is_active() const { return _active; }
+    void double_rto() { 
+      // _rto = (_rto << 1) > _rto ? (_rto << 1) : _rto; 
+      _rto = (_rto << 1);
+    }
+
+    size_t _rto;
+    size_t _ms{0};
+    bool _active{false};
+    unsigned int _consecutive_retransmissions_cnt{0};
+};
+
 //! \brief The "sender" part of a TCP implementation.
 
 //! Accepts a ByteStream, divides it up into segments and sends the
@@ -31,6 +77,24 @@ class TCPSender {
 
     //! the (absolute) sequence number for the next byte to be sent
     uint64_t _next_seqno{0};
+
+    // 已接收(absolute)序列号
+    uint64_t _ackno{0};
+
+    // ackno unwrap时的检查点
+    uint64_t _checkpoint{0};
+
+    // FIN发送标志位
+    bool _FIN_send{false};
+
+    // 接收方窗口大小, 初始设为1, 这样可以发送SYN
+    uint16_t _rwnd{1};
+
+    // 定时器
+    Timer _timer;
+
+    // 发送队列副本
+    std::queue<TCPSegment> _track{};
 
   public:
     //! Initialize a TCPSender
