@@ -20,7 +20,8 @@ void get_URL(const string &host, const string &path) {
     
     Address addr(host, "http");
     // TCPSocket tcp;
-    CS144TCPSocket tcp;
+    // CS144TCPSocket tcp;
+    FullStackSocket tcp;
     tcp.connect(addr);
 
     tcp.write("GET " + path + " HTTP/1.1\r\n" +

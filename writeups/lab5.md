@@ -1,29 +1,6 @@
 Lab 5 Writeup
 =============
 
-My name: [your name here]
+主要是搞清楚arp其实是数据链路层的协议，因此在NetworkInterface中，一个EthernetFrame要么是IP数据报，要么是 ARP报文。ARP报文也只有request和response，相对前面还是简单一些。
 
-My SUNet ID: [your sunetid here]
-
-I collaborated with: [list sunetids here]
-
-I would like to thank/reward these classmates for their help: [list sunetids here]
-
-This lab took me about [n] hours to do. I [did/did not] attend the lab session.
-
-Program Structure and Design of the NetworkInterface:
-[]
-
-Implementation Challenges:
-[]
-
-Remaining Bugs:
-[]
-
-- Optional: I had unexpected difficulty with: [describe]
-
-- Optional: I think you could make this lab better by: [describe]
-
-- Optional: I was surprised by: [describe]
-
-- Optional: I'm not sure about: [describe]
+另外云服务器同样在测试时有问题，可能模拟的tap网卡某些功能不被云服务器运行吧。
