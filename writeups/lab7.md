@@ -1,34 +1,6 @@
 Lab 7 Writeup
 =============
 
-My name: [your name here]
+这个lab不需要写代码，测试了一下，可以正常的通过自己实现的代码在网络上进行交互。
 
-My SUNet ID: [your sunetid here]
-
-My lab partner's SUNet ID: [your sunetid here]
-
-I also worked with or collaborated with: [their sunetids here]
-
-I would like to thank/reward these classmates for their help: [list sunetids here]
-
-This lab took me about [n] hours to do. I [did/did not] attend the lab session.
-
-Solo portion:
-[]
-
-Group portion:
-[]
-
-Creative portion (optional):
-[]
-
-Other remarks:
-[]
-
-- Optional: I had unexpected difficulty with: [describe]
-
-- Optional: I think you could make this lab better by: [describe]
-
-- Optional: I was surprised by: [describe]
-
-- Optional: I'm not sure about: [describe]
+cs144到此就结束了，但是很多知识以及代码都有点囫囵吞枣的感觉，希望有时间把没搞懂的弄懂。
