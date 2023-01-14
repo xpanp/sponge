@@ -1,29 +1,6 @@
 Lab 6 Writeup
 =============
 
-My name: [your name here]
+这个lab还是比较简单的，主要是最长前缀匹配，这里可以用异或操作来实现，想到也可以用字典树，但是这里O(n)的操作也是可以接受的，所以直接遍历就行。
 
-My SUNet ID: [your sunetid here]
-
-I collaborated with: [list sunetids here]
-
-I would like to thank/reward these classmates for their help: [list sunetids here]
-
-This lab took me about [n] hours to do. I [did/did not] attend the lab session.
-
-Program Structure and Design of the Router:
-[]
-
-Implementation Challenges:
-[]
-
-Remaining Bugs:
-[]
-
-- Optional: I had unexpected difficulty with: [describe]
-
-- Optional: I think you could make this lab better by: [describe]
-
-- Optional: I was surprised by: [describe]
-
-- Optional: I'm not sure about: [describe]
+另外理解一下next_hop为空和不为空的情况即可。
